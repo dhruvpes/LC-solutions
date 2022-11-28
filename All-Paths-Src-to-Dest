@@ -1,0 +1,40 @@
+class Solution {
+public:
+    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
+        
+        
+        vector<int>path;
+        vector<vector<int>>result;
+        path.push_back(0);
+        
+        backtrack(0, graph.size() - 1, graph, path, result);
+        return result;
+        
+    }
+    
+private:
+    
+    void backtrack(int src, int dest, vector<vector<int>>graph, vector<int>&path, vector<vector<int>>&result)
+    {
+        if(src == dest)
+        {
+            result.push_back(path);
+        }
+        else
+        {
+        
+            for(int node : graph[src])
+            {
+                path.push_back(node);
+                backtrack(node, dest, graph, path, result);
+                path.pop_back(); //Backtracking algorithm designnn
+
+            }
+        
+        }
+        
+        
+    }
+    
+    
+};
