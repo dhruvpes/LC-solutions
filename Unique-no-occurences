@@ -1,0 +1,40 @@
+//Daily leetcode challenge questions
+
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        
+        
+        unordered_set<int>S;
+        
+        unordered_set<int>uniques;
+        
+        for(auto x: arr)
+        {
+            uniques.insert(x);
+        }
+        
+        
+        
+        for(auto x: uniques)
+        {
+           //cout<<"Prinitng the x value"<<x<<'\t';
+            int temp = count(arr.begin(), arr.end(), x);
+            cout<< "printing temp or count is"<<temp<<'\n';
+            if( S.find(temp) == S.end())
+            {
+                cout<<"Element is not present";
+              S.insert(temp);
+            }
+            else
+            {
+                cout<<"Element exists previously, return false";
+                return false;
+            }
+            
+            
+        }
+        
+        return true;
+    }
+};
